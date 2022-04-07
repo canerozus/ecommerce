@@ -80,7 +80,7 @@ function Product({ product, setProduct, filter, onAdd, search }) {
                     return (
                         <div className="flex flex-col max-w-sm rounded overflow-hidden shadow-lg justify-center h-[600px] items-center m-10">
                             <div className='flex w-full justify-center items-center'>
-                                <img className=" h-72  " src={item.image} />
+                                <img className=" h-72  " src={item.image} alt='itemImage'/>
                             </div>
                             <h1 className="font-bold text-xl mb-2 px-6 py-4 text-center">{item.title}</h1>
 
@@ -94,7 +94,7 @@ function Product({ product, setProduct, filter, onAdd, search }) {
                     return (
                         <div className="flex flex-col max-w-sm rounded overflow-hidden shadow-lg justify-center h-[600px] items-center m-10">
                             <div className='flex w-full justify-center items-center'>
-                                <img className=" h-72  " src={item.image} />
+                                <img className=" h-72  " src={item.image} alt='itemImage'/>
                             </div>
                             <h1 className="font-bold text-xl mb-2 px-6 py-4 text-center">{item.title}</h1>
 
@@ -108,7 +108,7 @@ function Product({ product, setProduct, filter, onAdd, search }) {
                     return (
                         <div className="flex flex-col max-w-sm rounded overflow-hidden shadow-lg justify-center h-[600px] items-center m-10">
                             <div className='flex w-full justify-center items-center'>
-                                <img className=" h-72  " src={item.image} />
+                                <img className=" h-72  " src={item.image} alt='itemImage'/>
                             </div>
                             <h1 className="font-bold text-xl mb-2 px-6 py-4 text-center">{item.title}</h1>
 

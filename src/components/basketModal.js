@@ -29,7 +29,7 @@ function BasketModal({ open, setOpen, basket, onAdd, product, onRemove }) {
                                 return (
                                     <div key={index} className='flex flex-row gap-2 w-full'>
                                         <div className='flex items-center justify-center w-1/4'>
-                                        <img src={item.image} className='w-12 h-12' />
+                                        <img src={item.image} className='w-12 h-12' alt='item image'/>
                                         </div>
                                         <div className='flex flex-col items-center justify-center w-3/4 gap-3'>
                                             <div className='flex justify-start w-full text-left'>{item.title}</div>
