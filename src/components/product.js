@@ -25,17 +25,20 @@ function SamplePrevArrow(props) {
             onClick={onClick} />
     );
 }
-function Product({ product, setProduct, filter, search }) {
+function Product({ product, setProduct, filter, onAdd, search }) {
     const [loading, setLoading] = useState(true)
-    
+
+
+    useEffect(() => {
+        console.log(product)
+        console.log(search)
+    }, [search])
 
 
     useEffect(() => {
         setProduct(Data)
         setLoading(false)
     }, [Data])
-
-
 
 
     var settings = {
@@ -54,7 +57,7 @@ function Product({ product, setProduct, filter, search }) {
                     slidesToShow: 3,
                     slidesToScroll: 3,
                     infinite: true,
-                    dots: true
+                    dots: false
                 }
             },
             {
@@ -76,7 +79,7 @@ function Product({ product, setProduct, filter, search }) {
     };
     return (
 
-        <div className=' flex flex-col lg:h-full lg:w-full p-10'>
+        <div className=' flex flex-col :h-full w-full p-10'>
 
             {loading ? <h1>loading...</h1> : <Slider className=' flex flex-row h-full items-center justify-center '{...settings}>
                 {filter ? product.filter(item2 => item2.category === filter).map((item) => {
@@ -89,12 +92,11 @@ function Product({ product, setProduct, filter, search }) {
 
                             <div className="flex flex-col items-center justify-centerpx-6 pt-3 pb-3">
                                 <p>{parseFloat(item.price)}$</p>
-                                <button className='flex bg-orange-400 rounded p-2 mt-2 hover:bg-orange-500 ease-in text-white'>Add to Card</button>
+                                <button className='flex bg-orange-400 rounded p-2 mt-2 hover:bg-orange-500 ease-in text-white' onClick={(e) => onAdd(e, item)} >Add to Card</button>
                             </div>
                         </div>
                     )
-                }) : product.map((item) => {
-                    //search filteri buraya geç
+                }) : (search ? product.filter(item2 => item2.title.toLowerCase().includes(search)).map((item) => {
                     return (
                         <div className="flex flex-col max-w-sm rounded overflow-hidden shadow-lg justify-center h-[600px] items-center m-10">
                             <div className='flex w-full justify-center items-center'>
@@ -104,11 +106,25 @@ function Product({ product, setProduct, filter, search }) {
 
                             <div className="flex flex-col items-center justify-centerpx-6 pt-3 pb-3">
                                 <p>{parseFloat(item.price)}$</p>
-                                <button className='flex bg-orange-400 rounded p-2 mt-2 hover:bg-orange-500 ease-in text-white'>Add to Card</button>
+                                <button className='flex bg-orange-400 rounded p-2 mt-2 hover:bg-orange-500 ease-in text-white' onClick={(e) => onAdd(e, item)} >Add to Card</button>
                             </div>
                         </div>
                     )
-                })}
+                }) : product.map((item) => {
+                    return (
+                        <div className="flex flex-col max-w-sm rounded overflow-hidden shadow-lg justify-center h-[600px] items-center m-10">
+                            <div className='flex w-full justify-center items-center'>
+                                <img className=" h-72  " src={item.image} />
+                            </div>
+                            <h1 className="font-bold text-xl mb-2 px-6 py-4 text-center">{item.title}</h1>
+
+                            <div className="flex flex-col items-center justify-centerpx-6 pt-3 pb-3">
+                                <p>{parseFloat(item.price)}$</p>
+                                <button className='flex bg-orange-400 rounded p-2 mt-2 hover:bg-orange-500 ease-in text-white' onClick={(e) => onAdd(e, item)}>Add to Card</button>
+                            </div>
+                        </div>
+                    )
+                }))}
 
 
             </Slider>}

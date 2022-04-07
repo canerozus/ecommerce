@@ -1,20 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Data from '../products-list.json'
-function SearchBar({ product, setProduct }) {
-    const [search, setSearch] = useState("");
-
+function SearchBar({ product, setProduct, setSearch , search}) {
+    
     const handleQuery = (e) => {
-        setSearch(e.target.value)
-        if (product) {
-            setProduct(product.filter((item) => item.title.includes(e.target.value)))
-        }
+        setSearch(e.target.value.toLowerCase())
     }
-    useEffect(() => {
-        if (search.length === 0) {
 
-            setProduct(Data)
-        }
-    })
+
+
     return (
         <div className="flex justify-center p-5">
             <div className=" relative flex items-stretch w-full flex-row">
