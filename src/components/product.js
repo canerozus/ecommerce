@@ -30,12 +30,6 @@ function Product({ product, setProduct, filter, onAdd, search }) {
 
 
     useEffect(() => {
-        console.log(product)
-        console.log(search)
-    }, [search])
-
-
-    useEffect(() => {
         setProduct(Data)
         setLoading(false)
     }, [Data])

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import Data from '../products-list.json'
+import React from 'react'
+
 function SearchBar({ product, setProduct, setSearch , search}) {
     
     const handleQuery = (e) => {

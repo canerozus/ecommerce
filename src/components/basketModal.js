@@ -24,7 +24,7 @@ function BasketModal({ open, setOpen, basket, onAdd, product, onRemove }) {
                         </div>
 
                         <div className='flex  flex-col p-10 justify-center items-center'>
-                            {basket.length == 0 && <h1>Basket is Empty</h1>}
+                            {basket.length === 0 && <h1>Basket is Empty</h1>}
                             {basket.map((item, index) => {
                                 return (
                                     <div key={index} className='flex flex-row gap-2 w-full'>

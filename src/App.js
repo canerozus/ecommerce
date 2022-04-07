@@ -19,7 +19,7 @@ function App() {
   }
   const onRemove = (_, productData) => {
     const exist = basket.find(x => x.id === productData.id);
-    if(exist.qty == 1){
+    if(exist.qty === 1){
       setBasket(basket.filter(x => x.id !== productData.id))
     }else{
       setBasket(basket.map(x => x.id === productData.id ? { ...exist, qty: exist.qty - 1 } : x))

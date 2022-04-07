@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { FaShoppingBasket } from 'react-icons/fa'
 import BasketModal from './basketModal'
 
